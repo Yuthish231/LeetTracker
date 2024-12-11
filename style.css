@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #3b4451;
+    color:rgb(200, 200, 200);
+    font-family: "PT Serif", cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.cont {
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Cool Blue */
+    padding: 20px;
+    border-radius: 10px; /* Smooth corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+    gap:1rem; 
+    padding: 20px;
+    width: 50%;
+    max-width: 800px;
+}
+.user_cont{
+    padding-top: 10px;
+}
+#username_ip{
+    padding:5px;
+    height: 25px;
+    border-radius: 6px;
+}
+#submit_button{
+    padding: 3px;
+    border-radius: 6px; 
+    cursor: pointer;
+}
+
+.stats_cont{
+    /* display: none; */
+    /* visibility: hidden; */
+}
+:root {
+    --progress-color: #4caf50; /* Green for progress */
+    --remaining-color: #e0e0e0; /* Light gray for the remaining */
+    --border-color: #3e4c59; /* Dark blue-gray for the border */
+}
+
+.item_circle {
+    width: 150px; /* Diameter of the circle */
+    height: 150px; /* Same as width for a perfect circle */
+    border-radius: 50%; /* Makes it a circle */
+    background: conic-gradient(
+        var(--progress-color) 0% 40%, /* Green for completed part (40%) */
+        var(--remaining-color) 40% 100% /* Light gray for remaining part */
+    ); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    margin: 20px auto; /* Center the circle itself */
+    border: 5px solid #3e4c59; /* Dark blue-gray border */
+}
+.charts{
+    display: flex;
+    flex-wrap: wrap;
+}
+
