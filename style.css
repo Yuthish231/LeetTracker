@@ -42,28 +42,49 @@ body{
     /* visibility: hidden; */
 }
 :root {
-    --progress-color: #4caf50; /* Green for progress */
-    --remaining-color: #e0e0e0; /* Light gray for the remaining */
-    --border-color: #3e4c59; /* Dark blue-gray for the border */
+    --progress-color: #00ff08; 
 }
 
 .item_circle {
     width: 150px; /* Diameter of the circle */
     height: 150px; /* Same as width for a perfect circle */
     border-radius: 50%; /* Makes it a circle */
-    background: conic-gradient(
-        var(--progress-color) 0% 40%, /* Green for completed part (40%) */
-        var(--remaining-color) 40% 100% /* Light gray for remaining part */
-    ); 
+    background:orange;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
     display: flex;
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
     margin: 20px auto; /* Center the circle itself */
-    border: 5px solid #3e4c59; /* Dark blue-gray border */
+    border:solid #3e4c59; /* Dark blue-gray border */
 }
 .charts{
     display: flex;
     flex-wrap: wrap;
 }
+
+.easy_solve, .medium_solve, .hard_solve {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(#e0e0e0 0%, #e0e0e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Stack text vertically */
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff0000; /* White text for better contrast */
+    position: relative;
+    text-align: center;
+}
+
+.easy_solve .difficulty_text,
+.medium_solve .difficulty_text,
+.hard_solve .difficulty_text {
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 5px; /* Add spacing between numbers and difficulty */
+    color: #ed0606; /* Slightly lighter text for difficulty */
+}
+ 
 
