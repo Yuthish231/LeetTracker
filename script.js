@@ -8,9 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const easy_label = document.getElementById("easy_label");
     const medium_label = document.getElementById("medium_label");
     const hard_label = document.getElementById("hard_label");
+    const cards=document.getElementsByClassName("cards")[0];
 
     const validate = (username) => {
-        const usernameRegex = /^[a-zA-Z0-9_]{5,20}$/;
+        const usernameRegex = /^[a-zA-Z][a-zA-Z0-9_]{5,20}$/;
         if (username === "") {
             alert("Please enter an Username!");
             return false;
@@ -34,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json();
             console.log(data);
             display_userdata(data);
+            card_data(data);
+            cards.classList.add("visible");
         } catch (e) {
             stats.innerHTML = "<p>Unable to Fetch data!</p>";
         } finally {
@@ -59,6 +62,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const progressPercentage = (solved / total) * 100;
         circle.style.background = `conic-gradient(#4caf50 ${progressPercentage}%, #e0e0e0 ${progressPercentage}%)`;
         label.innerHTML = `${solved}/${total}`;
+    }
+
+    function card_data(data){
+        const acceptance=data.acceptanceRate;
+        const ranking=data.ranking;
+        const contribution=data.contributionPoints;
+        const contrib_div=document.getElementsByClassName("contrib")
+        const accept_div=document.getElementsByClassName("acceptance")
+        const ranking_div=document.getElementsByClassName("ranking")
+        contrib_div[0].innerHTML="Contibution: "+contribution;
+        accept_div[0].innerHTML="Acceptance rate: "+acceptance+"%";
+        ranking_div[0].innerHTML="Ranking: "+ranking;
     }
 
 

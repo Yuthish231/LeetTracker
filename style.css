@@ -1,90 +1,171 @@
-*{
+/* General Reset */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
-    background-color: #3b4451;
-    color:rgb(200, 200, 200);
-    font-family: "PT Serif", cursive;
+/* Body Styling */
+body {
+    background: linear-gradient(120deg, #1c1c1c, #2b2b2b);
+    font-family: 'PT Serif', serif;
+    color: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
+
+/* Container Styling */
 .cont {
-    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Cool Blue */
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
     padding: 20px;
-    border-radius: 10px; /* Smooth corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
-    gap:1rem; 
-    padding: 20px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
     width: 50%;
     max-width: 800px;
-}
-.user_cont{
-    padding-top: 10px;
-}
-#username_ip{
-    padding:5px;
-    height: 25px;
-    border-radius: 6px;
-}
-#submit_button{
-    padding: 3px;
-    border-radius: 6px; 
-    cursor: pointer;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-.stats_cont{
-    /* display: none; */
-    /* visibility: hidden; */
+/* Heading Styling */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #f8d347;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
-:root {
-    --progress-color: #00ff08; 
+
+/* Input and Button Styling */
+.user_cont {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#username_ip {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #495057;
+    background: #2b2b2b;
+    color: #f8f9fa;
+    outline: none;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+#username_ip::placeholder {
+    color: #adb5bd;
+}
+
+#submit_button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #f8d347;
+    color: #212529;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+#submit_button:hover {
+    background: #c6a529;
+    transform: scale(1.05);
+}
+
+/* Stats Container */
+.stats_cont {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .item_circle {
-    width: 150px; /* Diameter of the circle */
-    height: 150px; /* Same as width for a perfect circle */
-    border-radius: 50%; /* Makes it a circle */
-    background:orange;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #2b2b2b;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    margin: 20px auto; /* Center the circle itself */
-    border:solid #3e4c59; /* Dark blue-gray border */
-}
-.charts{
-    display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    animation: pulse 2s infinite;
 }
 
 .easy_solve, .medium_solve, .hard_solve {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background: conic-gradient(#e0e0e0 0%, #e0e0e0 100%);
+    background: conic-gradient(#f8d347 0%, #343a40 100%);
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column; /* Stack text vertically */
-    font-size: 16px;
+    align-items: center;
+    font-size: 1rem;
     font-weight: bold;
-    color: #ff0000; /* White text for better contrast */
-    position: relative;
+    color: #000000;
+}
+
+.difficulty_text {
+    font-size: 0.8rem;
+    color: #000000;
+}
+
+/* Cards Styling */
+.cards {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
     text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
-.easy_solve .difficulty_text,
-.medium_solve .difficulty_text,
-.hard_solve .difficulty_text {
-    font-size: 12px;
-    font-weight: normal;
-    margin-top: 5px; /* Add spacing between numbers and difficulty */
-    color: #ed0606; /* Slightly lighter text for difficulty */
+.cards.visible {
+    opacity: 1;
+    visibility: visible;
 }
- 
 
+.cards > div {
+    background: rgba(40, 40, 40, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    color: #f8d347;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.cards > div:hover {
+    transform: scale(1.05);
+    background: rgba(60, 60, 60, 0.9);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+}
