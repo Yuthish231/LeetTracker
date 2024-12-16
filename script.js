@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards=document.getElementsByClassName("cards")[0];
 
     const validate = (username) => {
-        const usernameRegex = /^[a-zA-Z][a-zA-Z0-9_]+$/;
+        const usernameRegex = /^[a-zA-Z]\w+$/;
         if (username === "") {
             alert("Please enter an Username!");
             return false;
